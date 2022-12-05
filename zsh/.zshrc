@@ -1,50 +1,28 @@
-##############
-##############
-### .zshrc ###
-##############
-##############
- 
- 
-#########################
-# Environment variables #
-#########################
- 
-export EDITOR=vim
-export VISUAL=vim
- 
- 
-###########
-# Aliases #
-###########
- 
+
+unsetopt NOTIFY #while off won't report the status of background jobs immdediately
+unsetopt BG_NICE #while off background jobs run at same proirity not lower
+
+#history settings
+export HISTSIZE=1000
+export SAVEHIST=1000
+export HISTFILE=$HOME/.history
+setopt HIST_IGNORE_DUPS #do not enter command lines into the history list if they are duplicates of the previous event
+
+
+#set defaults
+export EDITOR=nvim
+export VISUAL=nvim
+
+#directory navigation
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+
+alias ll="ls -lah"
+alias grep="grep --color=auto"
 alias zrc="$EDITOR $HOME/.zshrc"
-alias ll='ls -lah'
-alias grep='grep --color=auto'
- 
- 
-#############
-# Functions #
-#############
- 
-function mp32ogg {
-  # Convert between any audio formats (not just mp3/ogg)
-  # Example: mp32ogg existing.mp3 new.ogg
-  ffmpeg -i $1 $2
-}
- 
- 
-#############################
-# Load git stuff for prompt #
-#############################
- 
-autoload -Uz vcs_info  # Where do these come from? What else is there?
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-zstyle ':vcs_info:git:*' formats '%F{blue}(%b)%f'
-zstyle ':vcs_info:*' enable git
-setopt prompt_subst
- 
- 
+
+
 ########################
 # Prompt customization #
 ########################
@@ -56,7 +34,7 @@ setopt prompt_subst
 # %M is full hostname
 # %f resets formatting
 # %~ is current working directory
-PROMPT='%F{red}%n@%F{yellow}%m:%~%f$vcs_info_msg_0_> '
+PROMPT='%F{yellow}[%F{white} %n %F{yellow} %F{white}%m %F{yellow}]  %f'
  
 # %W is the date
 # %* is time
@@ -65,26 +43,4 @@ PROMPT='%F{red}%n@%F{yellow}%m:%~%f$vcs_info_msg_0_> '
 #   and outputs value n if it's false or 0, and value y is output
 #   when %q is non-zero.
 #   Replace q, n, and y with whatever values you want
-RPROMPT='%W %* %(?.√.%?)'
- 
-##########################
-# Keybind mode for shell #
-##########################
- 
-# For emacs keybinding
-#bindkey -e
- 
-# For vi keybinding
-bindkey -v
- 
-#######################
-# Command-line editor #
-#######################
- 
-# Uses $VISUAL editor
-autoload -z edit-command-line
-zle -N edit-command-line
-# If using emacs keybinds (CTRL-X + CTRL-E)
-#bindkey "^X^E" edit-command-line
-# If using vi keybinds (`v` in control mode)
-bindkey -M vicmd v edit-command-line
+RPROMPT='%W %* %F{yellow}%(?.√.%?)'
