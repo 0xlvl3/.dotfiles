@@ -16,7 +16,6 @@ local options = {
 	termguicolors = true,				-- set term gui colors	
 }
 
-
 --how we create our key and value pair options using table
 for k, v in pairs(options) do
   vim.opt[k] = v
