@@ -1,2 +1,5 @@
+require "hero.packer"
 require "hero.settings"
 require "hero.keymaps"
+require "hero.plugins.neosolarized"
+require "hero.plugins.lualine"
