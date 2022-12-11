@@ -9,8 +9,8 @@ local ensure_packer = function()
   end
   return false
 end
-
 local packer_bootstrap = ensure_packer() -- true if packer was just installed
+
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
 vim.cmd([[ 
@@ -28,14 +28,24 @@ end
 
 -- add list of plugins to install
 return packer.startup(function(use)
-	use 'wbthomason/packer.nvim'
+  -- packer can manage itself	
+  	use 'wbthomason/packer.nvim'
 	use {'svrana/neosolarized.nvim',
-	requires = { 'tjdevries/colorbuddy.nvim' }
-		
+	requires = { 'tjdevries/colorbuddy.nvim' }		
 }
 	use "nvim-lua/plenary.nvim"
 
+	-- file explorer
+  	use("nvim-tree/nvim-tree.lua")
+
+  	-- vs-code like icons
+  	use("nvim-tree/nvim-web-devicons")
+	
 	use 'nvim-lualine/lualine.nvim' -- Statusline
+
+	-- fuzzy finding w/ telescope
+ 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
+  	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
 	 -- snippets
   	use("L3MON4D3/LuaSnip") -- snippet engine
@@ -58,6 +68,22 @@ return packer.startup(function(use)
 
 	use'jose-elias-alvarez/null-ls.nvim'
 	use'jayp0521/mason-null-ls.nvim'
+
+	  -- treesitter configuration
+  	use({
+    	"nvim-treesitter/nvim-treesitter",
+    	run = function()
+      		local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+      		ts_update()
+    	end,
+  	})
+
+  	-- auto closing
+  	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
+  	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+
+  	-- git integration
+  	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
 	if packer_bootstrap then
     require("packer").sync()
