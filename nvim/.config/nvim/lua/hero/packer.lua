@@ -1,15 +1,17 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  	use 'wbthomason/packer.nvim'
+  	use ('wbthomason/packer.nvim')	
+	
 	use {'svrana/neosolarized.nvim',
 	requires = { 'tjdevries/colorbuddy.nvim' }		
-}
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		-- or                            , branch = '0.1.x',
- 	 	requires = { {'nvim-lua/plenary.nvim'} }
 	}
+	
+	--Telescope
+	use { 'nvim-telescope/telescope.nvim', 
+		branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+	use { 'nvim-telescope/telescope-fzf-native.nvim', 
+		run = 'make', cond = vim.fn.executable 'make' == 1 }
 
 	-- file explorer
   	use("nvim-tree/nvim-tree.lua")
@@ -22,34 +24,41 @@ return require('packer').startup(function(use)
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('nvim-treesitter/playground')
 
-	 -- snippets
-  	use("L3MON4D3/LuaSnip") -- snippet engine
- 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
- 	use("rafamadriz/friendly-snippets") -- useful snippets	
+	use { -- LSP Configuration & Plugins
+		'neovim/nvim-lspconfig',
+		requires = {
+			-- Automatically install LSPs to stdpath for neovim
+			'williamboman/mason.nvim',
+			'williamboman/mason-lspconfig.nvim',
 
-	-- autocompletion
-  	use("hrsh7th/nvim-cmp") -- completion plugin
-  	use("hrsh7th/cmp-buffer") -- source for text in buffer
-  	use("hrsh7th/cmp-path") -- source for file system paths
+			-- Useful status updates for LSP
+			'j-hui/fidget.nvim',
+		},
+	}
 
-	-- managing & installing lsp servers, linters & formatters
-  	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-  	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+	use { -- Autocompletion
+		'hrsh7th/nvim-cmp',
+		requires = {
+			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-buffer',
+			'hrsh7th/cmp-path',
+			'L3MON4D3/LuaSnip',
+			'saadparwaiz1/cmp_luasnip',
+			'rafamadriz/friendly-snippets',
+		},
+	}
 
-	use 'neovim/nvim-lspconfig' -- LSP
-	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
   	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
   	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	use'jose-elias-alvarez/null-ls.nvim'
-	use'jayp0521/mason-null-ls.nvim' 
+	use'jayp0521/mason-null-ls.nvim'
 
 	-- auto closing
   	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
   	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
   	-- git integration
-  	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-
-	
+  	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side	
 end)
+

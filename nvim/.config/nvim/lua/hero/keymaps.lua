@@ -25,6 +25,11 @@ vim.g.maplocalleader = " "
 ------------
 -- Normal --
 ------------
+
+--Move to end of line and start of line
+map('n', '<leader>l', '<leader>$')
+map('n', '<leader>h', '<S-^>')
+
 --Better window navigation
 map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
