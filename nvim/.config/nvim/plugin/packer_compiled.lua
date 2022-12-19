@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/lvl3/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "/home/lvl3/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
+  },
   ["fidget.nvim"] = {
     loaded = true,
     path = "/home/lvl3/.local/share/nvim/site/pack/packer/start/fidget.nvim",
