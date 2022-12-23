@@ -17,6 +17,13 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 
+#tmux quick
+alias -g tn='tmux new -s quick'
+alias -g kt='tmux kill-session'
+
+#bash calls
+alias -g tm='~/scripts/bash-public-scripts/tmux.sh'
+
 alias ll="ls -lah"
 alias grep="grep --color=auto"
 alias zrc="$EDITOR $HOME/.zshrc"
@@ -33,7 +40,7 @@ alias zrc="$EDITOR $HOME/.zshrc"
 # %M is full hostname
 # %f resets formatting
 # %~ is current working directory
-PROMPT='%F{yellow}[%F{white} %n %F{yellow} %F{white}%m %F{yellow}]  %f'
+PROMPT='%F{yellow}[ %F{white}%n%F{yellow}@%F{white}%m %F{yellow}]%F{green}[%~]%f %f'
  
 # %W is the date
 # %* is time
