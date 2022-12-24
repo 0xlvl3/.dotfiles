@@ -26,6 +26,9 @@ vim.g.maplocalleader = " "
 -- Normal --
 ------------
 
+--paste 
+map('n', '<leader>p', 'p')
+
 --Move to end of line and start of line
 map('n', '<leader>l', '<leader>$')
 map('n', '<leader>h', '<S-^>')
