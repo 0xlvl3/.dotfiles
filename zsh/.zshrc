@@ -17,12 +17,9 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 
-#tmux quick
-alias -g tn='tmux new -s quick'
-alias -g kt='tmux kill-session'
-
 #bash calls
-alias -g tm='~/scripts/bash-public-scripts/tmux.sh'
+alias -g tm='~/scripts/bash-public-scripts/tmux.sh' #tmux script
+alias -g com='~/scripts/bash-public-scripts/common.sh'
 
 alias ll="ls -lah"
 alias grep="grep --color=auto"
