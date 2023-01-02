@@ -31,3 +31,6 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+-- vimtex config
+vim.g.vimtex_view_method = "zathura"
