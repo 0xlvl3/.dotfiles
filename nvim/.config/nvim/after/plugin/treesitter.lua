@@ -9,11 +9,12 @@ treesitter.setup({
   -- enable syntax highlighting
   highlight = {
     enable = true,
+	disable = {"latex"},
   },
   -- enable indentation
-  indent = { 
+  indent = {
 		enable = true,
-		disable = {"python", },
+		disable = {"python", "latx"},
 	},
   -- enable autotagging (w/ nvim-ts-autotag plugin)
   autotag = { enable = true },
