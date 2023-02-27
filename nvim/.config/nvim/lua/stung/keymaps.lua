@@ -29,6 +29,9 @@ vim.g.maplocalleader = " "
 --paste 
 map('n', '<leader>p', 'p')
 
+-- Center mode toggle.
+map('n', '<leader>cs', ':NoNeckPain<CR>')
+
 --Move to end of line and start of line
 map('n', '<leader>l', '<leader>$')
 map('n', '<leader>h', '<S-^>')

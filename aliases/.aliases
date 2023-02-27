@@ -1,0 +1,84 @@
+# Update linux.
+alias updatel='sudo apt-get update && sudo apt-get upgrade'
+
+# Directory navigation.
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+
+# Directory listing.
+alias ll="ls -lah"
+
+# Terminal.
+alias c="clear"
+
+# Open editor.
+alias e='$EDITOR'
+
+# Git shortcuts.
+alias ga='git add'
+alias gaa='git add .'
+alias gcmsg='git commit -m'
+alias ggpull='git checkout master && git pull && git status'
+alias ggpush='git push origin'
+alias gre='git restore --staged'
+alias gsat='git status'
+
+# Git push
+# source here
+
+# Basic auto/tab complete.
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) # (globdots) will include hidden files.
+
+# Make directory and change into it.
+md () {
+  mkdir "$1"
+  cd "$1"
+}
+
+#############
+## VI MODE ##
+# code from:
+# https://www.youtube.com/watch?v=eLEo4OQ-cuQ
+# https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
+
+
+# Enable vi mode and set key timeout to 1 second.
+bindkey -v
+export KEYTIMEOUT=1
+
+# Use vim keys in tab complete menu.
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+
+# Use vi-style delete key.
+bindkey -v '^?' backward-delete-char
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+ if [[ $1 = 'block' ]] || [[ ${KEYMAP} == vicmd ]]; then
+    echo -ne '\e[1 q' # block shape cursor for command mode
+ else
+    echo -ne '\e[5 q' # beam shape cursor for insert mode
+ fi
+}
+zle -N zle-keymap-select
+
+# Use beam shape cursor by default and after each command.
+function zle-line-init {
+ zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+ echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q'; } # beam shape cursor after each command.
+
+############
+## VI END ##
+#----------#

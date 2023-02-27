@@ -19,7 +19,7 @@ mason.setup()
 
 mason_lspconfig.setup({
 	ensure_installed = {
-		'sumneko_lua',
+		'lua_ls',
 		'pyright',
 		'sourcery',
 		'jedi_language_server',

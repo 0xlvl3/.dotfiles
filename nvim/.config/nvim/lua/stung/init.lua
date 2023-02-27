@@ -1,5 +1,5 @@
-require("hero.keymaps")
-require("hero.packer")
+require("stung.keymaps")
+require("stung.packer")
 
 -- Settings
 local options = {	

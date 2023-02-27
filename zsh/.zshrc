@@ -1,3 +1,5 @@
+source ~/.aliases
+
 unsetopt NOTIFY #while off won't report the status of background jobs immdediately
 unsetopt BG_NICE #while off background jobs run at same proirity not lower
 
@@ -7,21 +9,10 @@ export SAVEHIST=1000
 export HISTFILE=$HOME/.history
 setopt HIST_IGNORE_DUPS #do not enter command lines into the history list if they are duplicates of the previous event
 
-
 #set defaults
 export EDITOR=nvim
 export VISUAL=nvim
 
-#directory navigation
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-
-#bash calls
-alias -g tm='~/scripts/bash-public-scripts/tmux.sh' #tmux script
-alias -g com='~/scripts/bash-public-scripts/common.sh'
-
-alias ll="ls -lah"
 alias grep="grep --color=auto"
 alias zrc="$EDITOR $HOME/.zshrc"
 
@@ -47,3 +38,10 @@ PROMPT='%F{yellow}[ %F{white}%n%F{yellow}@%F{white}%m %F{yellow}]%F{green}[%~
 #   when %q is non-zero.
 #   Replace q, n, and y with whatever values you want
 RPROMPT='%W %* %F{yellow}%(?.√.%?)'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Autosuggestions plugin.
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

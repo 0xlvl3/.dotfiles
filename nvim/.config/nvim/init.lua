@@ -1,1 +1,1 @@
-require("hero")
+require("stung")

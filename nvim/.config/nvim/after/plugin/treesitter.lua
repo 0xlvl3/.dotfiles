@@ -9,19 +9,17 @@ treesitter.setup({
   -- enable syntax highlighting
   highlight = {
     enable = true,
-	disable = {"latex"},
+	disable = {},
   },
   -- enable indentation
   indent = {
 		enable = true,
-		disable = {"python", "latx"},
+		disable = {"python"},
 	},
   -- enable autotagging (w/ nvim-ts-autotag plugin)
   autotag = { enable = true },
   -- ensure these language parsers are installed
   ensure_installed = {
-	"c",
-	"cpp",
 	"python",
     "json",
     "javascript",
@@ -31,7 +29,6 @@ treesitter.setup({
     "html",
     "css",
     "markdown",
-    "svelte",
     "graphql",
     "bash",
     "lua",
