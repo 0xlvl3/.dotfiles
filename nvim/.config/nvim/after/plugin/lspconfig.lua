@@ -71,5 +71,55 @@ lspconfig["lua_ls"].setup({
   },
 })
 
-
-
+-- Go lsp-config from:
+-- https://github.com/MarioCarrion/videos/blob/269956e913b76e6bb4ed790e4b5d25255cb1db4f/2023/01/nvim/lua/plugins/nvim-cmp.lua#L58-L108
+lspconfig['gopls'].setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    gopls = {
+      analyses = {
+        assign = true,
+        atomic = true,
+        bools = true,
+        composites = true,
+        copylocks = true,
+        deepequalerrors = true,
+        embed = true,
+        errorsas = true,
+        fieldalignment = true,
+        httpresponse = true,
+        ifaceassert = true,
+        loopclosure = true,
+        lostcancel = true,
+        nilfunc = true,
+        nilness = true,
+        nonewvars = true,
+        printf = true,
+        shadow = true,
+        shift = true,
+        simplifycompositelit = true,
+        simplifyrange = true,
+        simplifyslice = true,
+        sortslice = true,
+        stdmethods = true,
+        stringintconv = true,
+        structtag = true,
+        testinggoroutine = true,
+        tests = true,
+        timeformat = true,
+        unmarshal = true,
+        unreachable = true,
+        unsafeptr = true,
+        unusedparams = true,
+        unusedresult = true,
+        unusedvariable = true,
+        unusedwrite = true,
+        useany = true,
+      },
+      hoverKind = "FullDocumentation",
+      linkTarget = "pkg.go.dev",
+      usePlaceholders = true,
+    },
+  },
+}

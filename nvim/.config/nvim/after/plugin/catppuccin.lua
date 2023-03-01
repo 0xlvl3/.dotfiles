@@ -28,17 +28,31 @@
         types = {},
         operators = {},
     },
-    color_overrides = {},
-    custom_highlights = {},
-    integrations = {
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
-        telescope = true,
-        notify = false,
-        mini = false,
-        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
-    },
+    color_overrides = {
+		 latte = {
+			 green = "#a8e78d", -- Strings.
+			 sky = "#ffe0da", -- Operators.
+			 text = "#ffffff", -- Command, Sidenums.
+			 mauve = "#ffcf40", -- Tags; funcs,returns.
+			 --[[
+			 green = "#e8e66d", -- Strings.
+			 lavender = "#cbbcf4", -- Variables.
+			 peach = "#f7878f", -- Setup.
+			 blue = "#b1ead9", -- Requires.
+			 flamingo = "#f44336", -- Closes.
+			 surface0 = "#ebe7e7", -- Surface (Comments).
+			 surface1 = "#ebe7e7",
+			 surface2 = "#ebe7e7",
+			 ]]--
+		 }
+	 },
+	 highlight_overrides = {
+		 latte = function(C)
+			return {
+				 NvimTreeNormal = { fg = C.none }
+			}
+		end,
+	 },
 })
 
 -- setup must be called before loading
