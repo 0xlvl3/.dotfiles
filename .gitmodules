@@ -1,0 +1,9 @@
+[submodule "dwm/.config/dwm/dwm"]
+	path = dwm/.config/dwm/dwm
+	url = https://git.suckless.org/dwm
+[submodule "dwm/.config/dwm/dmenu"]
+	path = dwm/.config/dwm/dmenu
+	url = https://git.suckless.org/dmenu
+[submodule "dwm/.config/dwm/st"]
+	path = dwm/.config/dwm/st
+	url = https://git.suckless.org/st
