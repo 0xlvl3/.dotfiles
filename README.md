@@ -31,5 +31,14 @@ sudo apt-get install neovim
 ```
 
 #### Packer Plugins for Neovim
-`git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
+```
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+ ```
+ 
+ ### Gopls 
+Get latest golang here: https://go.dev/doc/install
+
+```
+go install golang.org/x/tools/gopls@latest
+```
