@@ -42,3 +42,12 @@ Get latest golang here: https://go.dev/doc/install
 ```
 go install golang.org/x/tools/gopls@latest
 ```
+
+### Git stuff 
+
+```
+git config --global core.editor "nvim"
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+git config --global --list
+```
