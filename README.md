@@ -11,9 +11,23 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 ```
 
 #### Nerdfont
+First:
+```
+sudo apt-get install fontconfig
+```
+
 Go get a nerdfont from here; install it like you would any other font.
 
 https://www.nerdfonts.com/font-downloads
+
+Personal favourite:
+```
+mkdir -p ~/.fonts
+cd ~/.fonts
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip
+unzip JetBrainsMono.zip
+fc-cache -fv
+```
 
 #### Nodejs and NPM Ubuntu
 https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04
