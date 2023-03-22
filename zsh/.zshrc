@@ -16,7 +16,8 @@ export VISUAL=nvim
 alias grep="grep --color=auto"
 alias zrc="$EDITOR $HOME/.zshrc"
 
-export PATH=/usr/local/go/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH # Golang
+export PATH="$PATH:/home/ubuntu/go/bin" # After you install gopls
 
 ########################
 # Prompt customization #
