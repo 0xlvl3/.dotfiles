@@ -2,8 +2,8 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   	use ('wbthomason/packer.nvim')			-- God mode.
-
-	use ("catppuccin/nvim")					-- Theme.
+	use ('cpea2506/one_monokai.nvim')		-- Monokai.
+--	use ("catppuccin/nvim")					-- Theme.
 
 	use { 'nvim-telescope/telescope.nvim',	-- Telescope standard.
 		branch = '0.1.x',

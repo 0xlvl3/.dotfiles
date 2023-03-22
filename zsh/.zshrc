@@ -16,6 +16,7 @@ export VISUAL=nvim
 alias grep="grep --color=auto"
 alias zrc="$EDITOR $HOME/.zshrc"
 
+export PATH=/usr/local/go/bin:$PATH
 
 ########################
 # Prompt customization #
@@ -28,7 +29,7 @@ alias zrc="$EDITOR $HOME/.zshrc"
 # %M is full hostname
 # %f resets formatting
 # %~ is current working directory
-PROMPT='%F{yellow}[ %F{white}%n%F{yellow}@%F{white}%m %F{yellow}]%F{green}[%~]%f %f'
+PROMPT='%F{cyan}[%F{white}stung%F{cyan}@%F{white}net%F{cyan}]%F{yellow}[%~]%f %f'
  
 # %W is the date
 # %* is time
