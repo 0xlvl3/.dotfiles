@@ -24,8 +24,6 @@ alias ggpush='git push origin'
 alias gre='git restore --staged'
 alias gsat='git status'
 
-# Git push
-source ~/.gitpushdata
 
 # Basic auto/tab complete.
 autoload -U compinit
