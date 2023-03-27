@@ -49,6 +49,11 @@ sudo apt-get install neovim
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
  ```
+
+#### Needed for vim-go
+```
+git clone https://github.com/fatih/vim-go.git ~/.local/share/nvim/site/pack/plugins/start/vim-go
+```
  
  ### Gopls 
 Get latest golang here: https://go.dev/doc/install

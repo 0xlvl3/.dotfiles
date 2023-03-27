@@ -29,8 +29,9 @@ alias zrc="$EDITOR $HOME/.zshrc"
 # %M is full hostname
 # %f resets formatting
 # %~ is current working directory
-PROMPT='%F{cyan}[%F{white}stung%F{cyan}@%F{white}net%F{cyan}]%F{yellow}[%~]%f %f'
- 
+PROMPT='%F{cyan}[%F{white}stung%F{cyan}@%F{white}net%F{cyan}]%F{yellow}[%~]%f %f '
+
+
 # %W is the date
 # %* is time
 # %? is the return code of previous command
