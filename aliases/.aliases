@@ -22,7 +22,8 @@ alias gcmsg='git commit -m'
 alias ggpull='git checkout master && git pull && git status'
 alias ggpush='git push origin'
 alias gre='git restore --staged'
-alias gsat='git status'
+alias gs='git status'
+alias gp='git push'
 
 
 # Basic auto/tab complete.
