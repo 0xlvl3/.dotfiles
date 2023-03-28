@@ -1,4 +1,5 @@
 source ~/.aliases
+source ~/environment/.dotfiles/scripts/zsh_start_menu.sh
 
 unsetopt NOTIFY #while off won't report the status of background jobs immdediately
 unsetopt BG_NICE #while off background jobs run at same proirity not lower
