@@ -1,31 +1,42 @@
-vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
-  	use ('wbthomason/packer.nvim')			-- God mode.
-	use ('cpea2506/one_monokai.nvim')		-- Monokai.
---	use ("catppuccin/nvim")					-- Theme.
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	  vim.fn.system({
+	    "git",
+	    "clone",
+	    "--filter=blob:none",
+	    "https://github.com/folke/lazy.nvim.git",
+	    "--branch=stable", -- latest stable release
+	    lazypath,
+	  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-	use { 'nvim-telescope/telescope.nvim',	-- Telescope standard.
+local plugins = {
+	'cpea2506/one_monokai.nvim',		-- Monokai.
+	--	use ("catppuccin/nvim")					-- Theme.
+	'fatih/vim-go',
+
+	{ 'nvim-telescope/telescope.nvim',	-- Telescope standard.
 		branch = '0.1.x',
-		requires = { 'nvim-lua/plenary.nvim' }
-	}
-	use { 'nvim-telescope/telescope-fzf-native.nvim',
+		dependencies = { 'nvim-lua/plenary.nvim' }
+	},
+	{ 'nvim-telescope/telescope-fzf-native.nvim',
 		run = 'make',						-- Telescope Algo.
-		cond = vim.fn.executable 'make' == 1 }
-  	use("nvim-tree/nvim-tree.lua")			-- File explorer. 
-  	use("nvim-tree/nvim-web-devicons")		-- Icons like VS-code.
-	use('nvim-lualine/lualine.nvim')		-- Statusline.
-	use('nvim-treesitter/nvim-treesitter',	-- Treesitter; syntax highlighting.
-		{run = ':TSUpdate'})
-	use {'neovim/nvim-lspconfig',			-- LSP Configuration & Plugins.
-		requires = {
+		cond = vim.fn.executable 'make' == 1 },
+  	"nvim-tree/nvim-tree.lua",			-- File explorer.
+  	"nvim-tree/nvim-web-devicons",		-- Icons like VS-code.
+	'nvim-lualine/lualine.nvim',		-- Statusline.
+	'nvim-treesitter/nvim-treesitter',	-- Treesitter; syntax highlighting.
+	{'neovim/nvim-lspconfig',			-- LSP Configuration & Plugins.
+		dependencies = {
 			'williamboman/mason.nvim',		-- Automatically install LSPs to stdpath for neovim.
 			'williamboman/mason-lspconfig.nvim',
 			'j-hui/fidget.nvim',			-- Useful status updates for LSP
 		},
-	}
-	use {'hrsh7th/nvim-cmp',				-- Autocompletion all together
-		requires = {
+	},
+	{'hrsh7th/nvim-cmp',				-- Autocompletion all together
+		dependencies = {
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-path',
@@ -33,16 +44,20 @@ return require('packer').startup(function(use)
 			'saadparwaiz1/cmp_luasnip',
 			'rafamadriz/friendly-snippets',
 		},
-	}
- 	use({ "glepnir/lspsaga.nvim",
-		branch = "main" })					-- Enhanced lsp uis.
-  	use("onsails/lspkind.nvim")				-- vs-code like icons for autocompletion
-	use('jose-elias-alvarez/null-ls.nvim')	-- Diagnositics, formatting, completion.
-	use('jayp0521/mason-null-ls.nvim')
-  	use("windwp/nvim-autopairs")			-- Autoclose () {} "" etc..
-  	use({ "windwp/nvim-ts-autotag",
-		after = "nvim-treesitter" })		-- Autoclose tags.
-  	use("lewis6991/gitsigns.nvim")			-- Show git like line modifications on left hand side.
-	use("shortcuts/no-neck-pain.nvim")		-- Code focus to middle of screen.
+	},
+ 	{ "glepnir/lspsaga.nvim",
+		branch = "main" },					-- Enhanced lsp uis.
+  	"onsails/lspkind.nvim",				-- vs-code like icons for autocompletion
+	'jose-elias-alvarez/null-ls.nvim',	-- Diagnositics, formatting, completion.
+	'jayp0521/mason-null-ls.nvim',
+  	"windwp/nvim-autopairs",			-- Autoclose () {} "" etc..
+  	{ "windwp/nvim-ts-autotag",
+		after = "nvim-treesitter" },		-- Autoclose tags.
+  	"lewis6991/gitsigns.nvim",			-- Show git like line modifications on left hand side.
+	"shortcuts/no-neck-pain.nvim",		-- Code focus to middle of screen.
 
-end)
+}
+
+local opts = {}
+
+require("lazy").setup(plugins, opts)
