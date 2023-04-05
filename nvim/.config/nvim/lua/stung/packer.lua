@@ -6,15 +6,15 @@ if not vim.loop.fs_stat(lazypath) then
 	    "clone",
 	    "--filter=blob:none",
 	    "https://github.com/folke/lazy.nvim.git",
-	    "--branch=stable", -- latest stable release
+	    "--branch=stable", 			-- latest stable release
 	    lazypath,
 	  })
 end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	'cpea2506/one_monokai.nvim',		-- Monokai.
-	--	use ("catppuccin/nvim")					-- Theme.
+	'cpea2506/one_monokai.nvim',		-- Monokai Theme.
+	--use ("catppuccin/nvim")		-- Catppuccin Theme.
 	'fatih/vim-go',
 
 	{ 'nvim-telescope/telescope.nvim',	-- Telescope standard.
@@ -22,20 +22,20 @@ local plugins = {
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
 	{ 'nvim-telescope/telescope-fzf-native.nvim',
-		run = 'make',						-- Telescope Algo.
+		run = 'make',			-- Telescope Algo.
 		cond = vim.fn.executable 'make' == 1 },
-  	"nvim-tree/nvim-tree.lua",			-- File explorer.
+  	"nvim-tree/nvim-tree.lua",		-- File explorer.
   	"nvim-tree/nvim-web-devicons",		-- Icons like VS-code.
 	'nvim-lualine/lualine.nvim',		-- Statusline.
 	'nvim-treesitter/nvim-treesitter',	-- Treesitter; syntax highlighting.
-	{'neovim/nvim-lspconfig',			-- LSP Configuration & Plugins.
+	{'neovim/nvim-lspconfig',		-- LSP Configuration & Plugins.
 		dependencies = {
 			'williamboman/mason.nvim',		-- Automatically install LSPs to stdpath for neovim.
 			'williamboman/mason-lspconfig.nvim',
 			'j-hui/fidget.nvim',			-- Useful status updates for LSP
 		},
 	},
-	{'hrsh7th/nvim-cmp',				-- Autocompletion all together
+	{'hrsh7th/nvim-cmp',					-- Autocompletion all together
 		dependencies = {
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
@@ -46,14 +46,14 @@ local plugins = {
 		},
 	},
  	{ "glepnir/lspsaga.nvim",
-		branch = "main" },					-- Enhanced lsp uis.
-  	"onsails/lspkind.nvim",				-- vs-code like icons for autocompletion
+		branch = "main" },		-- Enhanced lsp uis.
+  	"onsails/lspkind.nvim",			-- vs-code like icons for autocompletion
 	'jose-elias-alvarez/null-ls.nvim',	-- Diagnositics, formatting, completion.
 	'jayp0521/mason-null-ls.nvim',
-  	"windwp/nvim-autopairs",			-- Autoclose () {} "" etc..
+  	"windwp/nvim-autopairs",		-- Autoclose () {} "" etc..
   	{ "windwp/nvim-ts-autotag",
-		after = "nvim-treesitter" },		-- Autoclose tags.
-  	"lewis6991/gitsigns.nvim",			-- Show git like line modifications on left hand side.
+		after = "nvim-treesitter" },	-- Autoclose tags.
+  	"lewis6991/gitsigns.nvim",		-- Show git like line modifications on left hand side.
 	"shortcuts/no-neck-pain.nvim",		-- Code focus to middle of screen.
 
 }
