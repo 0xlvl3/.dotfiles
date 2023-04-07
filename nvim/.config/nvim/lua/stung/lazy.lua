@@ -56,7 +56,8 @@ local plugins = {
   	{ "windwp/nvim-ts-autotag",
 		after = "nvim-treesitter" },	-- Autoclose tags.
   	"lewis6991/gitsigns.nvim",		-- Show git like line modifications on left hand side.
-	{'akinsho/toggleterm.nvim', version = "*", config = true}
+	{'akinsho/toggleterm.nvim', version = "*", config = true},
+	"shortcuts/no-neck-pain.nvim",		-- Code focus to middle of screen.
 
 }
 

@@ -27,6 +27,9 @@ vim.g.maplocalleader = " "
 -- Normal --
 ------------
 
+-- Center mode.
+map('n', '<leader>nn', ':NoNeckPain<CR>')
+
 --paste 
 map('n', '<leader>p', 'p')
 
