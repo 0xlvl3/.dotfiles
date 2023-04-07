@@ -19,10 +19,6 @@ mason.setup()
 
 mason_lspconfig.setup({
 	ensure_installed = {
-		'lua_ls',
-		'pyright',
-		'sourcery',
-		'jedi_language_server',
 	},
 	 	-- auto-install configured servers (with lspconfig)
   		automatic_installation = true, 	-- not the same as ensure_installed
@@ -30,7 +26,5 @@ mason_lspconfig.setup({
 
 mason_null_ls.setup({
 	ensure_installed = {
-		'black',
-		'flake8',
 	}
 })

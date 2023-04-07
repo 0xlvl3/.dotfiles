@@ -1,8 +1,9 @@
 require("stung.keymaps")
-require("stung.packer")
+require("stung.lazy")
 
 -- Settings
 local options = {	
+	modifiable = true,
 	fileencoding = "utf-8", 			-- file encoding for multibyte text
 	mouse = "a", 						-- enable use of mouse clicks
 	shiftwidth = 4, 					-- number of spaces to use for (auto)indent step

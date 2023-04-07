@@ -29,9 +29,6 @@ vim.g.maplocalleader = " "
 --paste 
 map('n', '<leader>p', 'p')
 
--- Center mode toggle.
-map('n', '<leader>cs', ':NoNeckPain<CR>')
-
 --Move to end of line and start of line
 map('n', '<leader>l', '<leader>$')
 map('n', '<leader>h', '<S-^>')
@@ -52,8 +49,8 @@ map('n', '<C-Right>', ':vertical resize -5<CR>')
 map('n', '<leader>t', ':tabedit<CR>')
 
 --Tab navigation
-map('n', '<A-Left>', ':tabnext<CR>')
-map('n', '<A-Right>', ':tabprevious<CR>')
+map('n', '<S-l>', ':tabnext<CR>')
+map('n', '<S-h>', ':tabprevious<CR>')
 
 --Split screen vertical and horizontal
 map('n', '<leader>|', ':vsplit<CR>')
@@ -93,7 +90,6 @@ map('v', '>', '>gv')
 
 
 --Telescope
--- telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 map("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 map("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory

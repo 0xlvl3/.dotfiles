@@ -1,5 +1,5 @@
 source ~/.aliases
-source ~/environment/.dotfiles/scripts/zsh_start_menu.sh
+source ~/.dotfiles/scripts/zsh_start_menu.sh
 
 unsetopt NOTIFY #while off won't report the status of background jobs immdediately
 unsetopt BG_NICE #while off background jobs run at same proirity not lower
@@ -50,7 +50,8 @@ export NVM_DIR="$HOME/.nvm"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # GO PATHS.
-export GOPATH=$HOME/environment/projects/go
+export GOPATH=$HOME/projects/go
 export GOBIN=/usr/local/go/bin
 export GOCACHE=$HOME/.cache/go-build
 export PATH=$PATH:$GOBIN:$GOPATH/bin
+
