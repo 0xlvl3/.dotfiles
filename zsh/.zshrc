@@ -55,3 +55,7 @@ export GOBIN=/usr/local/go/bin
 export GOCACHE=$HOME/.cache/go-build
 export PATH=$PATH:$GOBIN:$GOPATH/bin
 
+# CLANG PATHS.
+export PATH="$HOME/tools/llvm-project/build/bin:$PATH"
+export LD_LIBRARY_PATH="$HOME/tools/llvm-project/build/lib:$LD_LIBRARY_PATH"
+
