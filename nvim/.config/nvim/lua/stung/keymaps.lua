@@ -82,7 +82,7 @@ map('i', 'kj', '<ESC>')
 map('i', 'jk', '<ESC>')
 
 ------------
--- Visual --
+-- visual --
 ------------
 
 --Stay in indent mode
@@ -91,6 +91,12 @@ map('v', '>', '>gv')
 
 --map('v', '<A-j>', ':m .+1<CR>==')
 --map('v', '<A-k>', ':m .-2<CR>==')
+
+------------
+-- visual block --
+------------
+
+map('x', '/', 'I//', {noremap = true})
 
 
 --Telescope
