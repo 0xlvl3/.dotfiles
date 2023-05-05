@@ -1,5 +1,5 @@
 source ~/.aliases
-source ~/.dotfiles/scripts/zsh_start_menu.sh
+# source ~/.dotfiles/scripts/zsh_start_menu.sh
 
 unsetopt NOTIFY #while off won't report the status of background jobs immdediately
 unsetopt BG_NICE #while off background jobs run at same proirity not lower
@@ -59,3 +59,7 @@ export PATH=$PATH:$GOBIN:$GOPATH/bin
 export PATH="$HOME/tools/llvm-project/build/bin:$PATH"
 export LD_LIBRARY_PATH="$HOME/tools/llvm-project/build/lib:$LD_LIBRARY_PATH"
 
+export GOPATH=$HOME/environment/projects/go
+export GOBIN=/usr/local/go/bin
+export GOCACHE=$HOME/.cache/go-build
+export PATH=$PATH:$GOBIN:$GOPATH/bin
