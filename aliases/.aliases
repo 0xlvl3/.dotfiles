@@ -6,11 +6,14 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 
+# exa alias
+alias -g l='exa -l'
+alias -g lg='exa -G'
+alias -g l1='exa -1'
+alias -g ls='exa -a'
+
 # C compile
 alias ccm='gcc -o main main.c'
-
-# lsd directories - 'lsd' package required
-alias ls="lsd"
 
 # Directory listing.
 alias ll="ls -lah"
