@@ -9,6 +9,9 @@ alias -g .....='../../../..'
 # C compile
 alias ccm='gcc -o main main.c'
 
+# lsd directories - 'lsd' package required
+alias ls="lsd"
+
 # Directory listing.
 alias ll="ls -lah"
 
