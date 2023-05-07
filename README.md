@@ -70,3 +70,10 @@ git config --global user.name "Your Name"
 git config --global user.email "youremail@example.com"
 git config --global --list
 ```
+
+
+# Other packages required 
+- imagemagick -> neofetch img
+- fehg -> backgrounds
+- picom -> graphical effects for wm
+- fonts -> Jetbrains Nerd Font, Noto Color Emoji, Apple Color Emoji
