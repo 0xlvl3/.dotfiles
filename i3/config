@@ -10,6 +10,8 @@ exec --no-startup-id picom -CGb
 # Browser hotkey
 bindsym $mod+n exec brave
 
+bindsym $mod+semicolon exec discord
+
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1+Shift+Control+Mod4
