@@ -49,6 +49,9 @@ export NVM_DIR="$HOME/.nvm"
 # Autosuggestions plugin.
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# PATH 
+export PATH="$HOME/.local/bin:$PATH"
+
 # GO PATHS.
 export GOPATH=$HOME/projects/go
 export GOBIN=/usr/local/go/bin
