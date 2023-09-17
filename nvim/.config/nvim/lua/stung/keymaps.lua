@@ -107,3 +107,26 @@ map("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+
+
+----------------------
+-- ###  JDTLS      ###|
+----------------------
+
+-- Organize imports
+map('n', '<A-o>', '<Cmd>lua require\'jdtls\'.organize_imports()<CR>')
+
+-- Extract variable
+map('n', 'crv', '<Cmd>lua require(\'jdtls\').extract_variable()<CR>')
+map('v', 'crv', '<Esc><Cmd>lua require(\'jdtls\').extract_variable(true)<CR>')
+
+-- Extract constant
+map('n', 'crc', '<Cmd>lua require(\'jdtls\').extract_constant()<CR>')
+map('v', 'crc', '<Esc><Cmd>lua require(\'jdtls\').extract_constant(true)<CR>')
+
+-- Extract method
+map('v', 'crm', '<Esc><Cmd>lua require(\'jdtls\').extract_method(true)<CR>')
+
+-- If using nvim-dap with JDTLS
+map('n', '<leader>df', '<Cmd>lua require\'jdtls\'.test_class()<CR>')
+map('n', '<leader>dn', '<Cmd>lua require\'jdtls\'.test_nearest_method()<CR>')

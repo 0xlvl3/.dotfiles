@@ -18,6 +18,7 @@ local plugins = {
 	'nvim-lualine/lualine.nvim',		-- Statusline.
 
 	'fatih/vim-go',						-- Go for vim
+	'mfussenegger/nvim-jdtls', event = 'BufRead',			-- Java
 
   	'nvim-tree/nvim-web-devicons',		-- Icons like VS-code.
 

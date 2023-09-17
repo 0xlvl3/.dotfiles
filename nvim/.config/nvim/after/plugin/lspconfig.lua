@@ -3,6 +3,17 @@ local lspkind = require("lspkind")
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+-- :Mason -> will give you menu to select language servers
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -126,4 +137,19 @@ lspconfig['gopls'].setup {
 lspconfig['pyright'].setup{}
 
 
-
+local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+lspconfig['jdtls'].setup{
+    cmd = {
+	'java',
+		'-Declipse.application=org.eclipse.jdt.ls.core.id1',
+		'-Dosgi.bundles.defaultStartLevel=4',
+		'-Declipse.product=org.eclipse.jdt.ls.core.product', 
+		'-Dlog.level=ALL',
+		'-Xmx1G',
+		'-jar', vim.fn.expand('~/projects/java/jdt-lang-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar'),
+		'-configuration', vim.fn.expand('~/projects/java/jdt-lang-server/config_linux/'),
+		'-data', vim.fn.expand('~/.cache/jdtls-workspace') .. workspace_dir,
+	},
+	capabilities = capabilities,	
+	on_attach = on_attach,
+}
