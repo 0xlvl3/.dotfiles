@@ -14,50 +14,43 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	'cpea2506/one_monokai.nvim',		-- Monokai Theme.
-	'fatih/vim-go',
-	{ 'nvim-telescope/telescope.nvim',	-- Telescope standard.
-		branch = '0.1.x',
-		dependencies = { 'nvim-lua/plenary.nvim' }
-	},
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
-    },
 
-	{ 'nvim-telescope/telescope-fzf-native.nvim',
-		run = 'make',			-- Telescope Algo.
-		cond = vim.fn.executable 'make' == 1 },
-  	"nvim-tree/nvim-tree.lua",		-- File explorer.
-  	"nvim-tree/nvim-web-devicons",		-- Icons like VS-code.
 	'nvim-lualine/lualine.nvim',		-- Statusline.
-	{'hrsh7th/nvim-cmp',					-- Autocompletion all together
-		dependencies = {
-			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-buffer',
-			'hrsh7th/cmp-path',
-			'L3MON4D3/LuaSnip',
-			'saadparwaiz1/cmp_luasnip',
-			'rafamadriz/friendly-snippets',
-		},
-	},
- 	{ "glepnir/lspsaga.nvim",
-		branch = "main" },		-- Enhanced lsp uis.
-	{'neovim/nvim-lspconfig',		-- LSP Configuration & Plugins.
-		dependencies = {
-			'williamboman/mason.nvim',		-- Automatically install LSPs to stdpath for neovim.
-			'williamboman/mason-lspconfig.nvim',
-			'j-hui/fidget.nvim',			-- Useful status updates for LSP
-		},
-	},
-  	"onsails/lspkind.nvim",			-- vs-code like icons for autocompletion
+
+	'fatih/vim-go',						-- Go for vim
+
+  	'nvim-tree/nvim-web-devicons',		-- Icons like VS-code.
+
+	'nvim-telescope/telescope.nvim', tag = '0.1.3', -- Fuzzy finder
+	'nvim-lua/plenary.nvim',
+    
+    'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', -- Highlight
+
+	{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make',			-- Telescope Algo.
+		cond = vim.fn.executable 'make' == 1 },
+
+	'williamboman/mason.nvim',		-- Automatically install LSPs to stdpath for neovim.
+	'williamboman/mason-lspconfig.nvim',
+
+	'neovim/nvim-lspconfig',		-- LSP Configuration & Plugins.
+	'j-hui/fidget.nvim',			-- Useful status updates for LSP
+	'hrsh7th/nvim-cmp',		
+	'hrsh7th/cmp-nvim-lsp',			-- LSP source for nvim-cmp
+	'L3MON4D3/LuaSnip',				-- Snippets
+	'saadparwaiz1/cmp_luasnip',		-- Snippets
+	'rafamadriz/friendly-snippets',	-- Snippets
+	'glepnir/lspsaga.nvim', branch = 'main',		-- Enhanced lsp uis.
+	'onsails/lspkind.nvim',			-- vs-code like icons for autocompletion
 	'jose-elias-alvarez/null-ls.nvim',	-- Diagnositics, formatting, completion.
-	'jayp0521/mason-null-ls.nvim',
-  	"windwp/nvim-autopairs",		-- Autoclose () {} "" etc..
-  	{ "windwp/nvim-ts-autotag",
-		after = "nvim-treesitter" },	-- Autoclose tags.
-  	"lewis6991/gitsigns.nvim",		-- Show git like line modifications on left hand side.
+
+  	'windwp/nvim-autopairs',		-- Autoclose () {} "" etc..
+  	'windwp/nvim-ts-autotag', after = 'nvim-treesitter',	-- Autoclose tags.
+
+  	'lewis6991/gitsigns.nvim',		-- Show git like line modifications on left hand side.
+
 	{'akinsho/toggleterm.nvim', version = "*", config = true},
-	"shortcuts/no-neck-pain.nvim",		-- Code focus to middle of screen.
+
+	'shortcuts/no-neck-pain.nvim',	-- Code focus to middle of screen.
 
 }
 

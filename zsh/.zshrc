@@ -30,7 +30,7 @@ alias zrc="$EDITOR $HOME/.zshrc"
 # %M is full hostname
 # %f resets formatting
 # %~ is current working directory
-PROMPT='%F{cyan}[%F{white}choccy%F{cyan}@%F{white}slime%F{cyan}]%F{yellow}[%~]%f %f '
+PROMPT='%F{cyan}[%F{white}choccy%F{cyan}@%F{white}zsh%F{cyan}]%F{yellow}[%~]%f %f '
 
 
 # %W is the date
@@ -62,7 +62,3 @@ export PATH=$PATH:$GOBIN:$GOPATH/bin
 export PATH="$HOME/tools/llvm-project/build/bin:$PATH"
 export LD_LIBRARY_PATH="$HOME/tools/llvm-project/build/lib:$LD_LIBRARY_PATH"
 
-export GOPATH=$HOME/environment/projects/go
-export GOBIN=/usr/local/go/bin
-export GOCACHE=$HOME/.cache/go-build
-export PATH=$PATH:$GOBIN:$GOPATH/bin

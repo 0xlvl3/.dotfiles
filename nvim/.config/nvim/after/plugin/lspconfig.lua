@@ -1,14 +1,7 @@
-local cmp_setup, cmp = pcall(require, "cmp")
-if not cmp_setup then return end
-
-local lspkind_setup, lspkind = pcall(require, "lspkind")
-if not lspkind_setup then return end
-
-local lspconfig_setup, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_setup then return end
-
-local cmp_nvim_lsp_setup, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_nvim_lsp_setup then return end
+local cmp = require("cmp")
+local lspkind = require("lspkind")
+local lspconfig = require("lspconfig")
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 cmp.setup({
   snippet = {
@@ -55,13 +48,27 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 end
 
--- Change the Diagnostic symbols in the sign column (gutter)
--- (not in youtube nvim video)
+-- Diagnostic symbols in the sign column
 local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+cmp.setup {
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      maxwidth = 50,
+
+      before = function(entry, vim_item)
+        return vim_item
+      end
+    })
+  }
+}
+
+-- lspservers --
 
 -- Go lsp-config from:
 -- https://github.com/MarioCarrion/videos/blob/269956e913b76e6bb4ed790e4b5d25255cb1db4f/2023/01/nvim/lua/plugins/nvim-cmp.lua#L58-L108
@@ -118,17 +125,5 @@ lspconfig['gopls'].setup {
 
 lspconfig['pyright'].setup{}
 
-cmp.setup {
-  formatting = {
-    format = lspkind.cmp_format({
-      mode = "symbol_text",
-      maxwidth = 50,
-
-      before = function(entry, vim_item)
-        return vim_item
-      end
-    })
-  }
-}
 
 
