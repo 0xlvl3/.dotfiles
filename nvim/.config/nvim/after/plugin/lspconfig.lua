@@ -136,7 +136,7 @@ lspconfig['gopls'].setup {
 
 lspconfig['pyright'].setup{}
 
-
+-- If you use my config change paths to your jdtls
 local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 lspconfig['jdtls'].setup{
     cmd = {
@@ -146,8 +146,8 @@ lspconfig['jdtls'].setup{
 		'-Declipse.product=org.eclipse.jdt.ls.core.product', 
 		'-Dlog.level=ALL',
 		'-Xmx1G',
-		'-jar', vim.fn.expand('~/projects/java/jdt-lang-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar'),
-		'-configuration', vim.fn.expand('~/projects/java/jdt-lang-server/config_linux/'),
+		'-jar', vim.fn.expand('~/projects/java/jdt-lang-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar'), -- change here
+		'-configuration', vim.fn.expand('~/projects/java/jdt-lang-server/config_linux/'), -- change here
 		'-data', vim.fn.expand('~/.cache/jdtls-workspace') .. workspace_dir,
 	},
 	capabilities = capabilities,	
