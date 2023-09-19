@@ -10,6 +10,13 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+-- Open Toggleterm in working directory func
+_G.open_term_in_current_dir = function()
+	vim.cmd("lcd %:p:h")
+	require("toggleterm").toggle()
+end
+
+
 -- Set leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -25,6 +32,9 @@ vim.g.maplocalleader = " "
 -------------------
 -- ###	Normal	###|
 -------------------
+
+-- Toggle terminal in current file's directory
+map('n', '<C-d>', ':lua open_term_in_current_dir()<CR>')
 
 -- Center mode
 map('n', '<leader>nn', ':NoNeckPain<CR>')
@@ -105,7 +115,7 @@ map('x', '/', 'I//', {noremap = true})
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+map("n", "<leader>fb", "<cmd>Telescope file_browser<cr>")
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
 

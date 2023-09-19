@@ -21,6 +21,7 @@ local plugins = {
 
   	'nvim-tree/nvim-web-devicons',		-- Icons like VS-code.
 
+	'nvim-telescope/telescope-file-browser.nvim',	-- Browser in telescope
 	'nvim-telescope/telescope.nvim', tag = '0.1.3', -- Fuzzy finder
 	'nvim-lua/plenary.nvim',
     

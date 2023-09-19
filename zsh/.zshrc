@@ -63,3 +63,27 @@ export PATH=$PATH:$GOBIN:$GOPATH/bin
 export JAVA_HOME=/path/to/your/jdk
 export JDTLS_HOME=$HOME/.config/jdtls
 export PATH=$PATH:$JAVA_HOME/bin:$JDTLS_HOME/bin
+
+
+runjava() {
+  if [[ -z "$1" ]]; then
+    echo "Please provide a Java file to compile and run."
+    return 1
+  fi
+
+  # Remove the .java extension if provided
+  local filename="${1%.java}"
+
+  # Compile the Java file
+  javac "$filename.java"
+  if [[ $? -ne 0 ]]; then
+    echo "Compilation failed!"
+    return 1
+  fi
+
+  # Run the Java program
+  java "$filename"
+}
+
+# Add to your zshrc
+alias jrun=runjava
